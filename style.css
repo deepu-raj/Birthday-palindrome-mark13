@@ -1,0 +1,97 @@
+body{
+    text-align:center;
+    margin:auto;
+    
+}
+
+h1{ 
+    margin:2rem;
+    color: #6f00ff;
+}
+#instructions{
+    font-size: x-large;
+    margin:2rem;
+
+}
+
+table{
+    text-align: center;
+    margin:auto;
+    width:50%;
+    margin-top: 1rem;
+    color: #6f00ff;
+    margin-bottom: 4rem;
+       
+}
+
+
+#dob, #input-num{
+    
+        font-size: 14px;        
+        padding: 0.6rem 1rem;
+        margin: 1rem;
+        border: 2px solid #6f00ff;
+        border-radius: 0.5rem;
+        width: 100%;
+        max-width: 258px;
+}
+.errorMsg {
+    margin:1rem;
+
+}
+#check-btn{
+    background: #6f00ff;
+  border: none;
+  color: #fff;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  font-size: large;
+  cursor: pointer;
+  outline: #fff;
+  margin: auto;
+  display: block;
+
+}
+.label{
+    font-size: larger;
+    font-weight: bold;
+    
+}
+
+#errorMsg{
+    font-size: x-large;
+    font-weight: bold;
+    margin: 2rem;
+    
+}
+caption{
+    font-size: larger;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color:black;
+}
+
+footer {
+    text-align: center;
+  }
+  
+  footer p {
+    font-size: large;
+    text-align: center;
+  }
+  
+  .footer-list {
+    margin: 1rem;
+  }
+  
+  a,
+  img,
+  li {
+    display: inline;
+  }
+  
+  img {
+    width: 40px;
+    padding: 0.2rem;
+  }
+  
