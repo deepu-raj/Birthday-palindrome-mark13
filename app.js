@@ -190,11 +190,14 @@ function clickhandler(){
   var date = { day:Number(dateString[2]),month:Number(dateString[1]),year:Number(dateString[0])};
    if (checkAlldateFormatsIsPalindrome(date)){
    displayMsg.innerText = " Yes! you were born on a palindrome"
- } else {
-    var nearestPalindrome = findNearest(date);
-    displayMsg.innerText = nearestPalindrome[0] + "days ahead is the nearest palindrome on " + nearestPalindrome[1].day+"-"+nearestPalindrome[1].month+"-"+nearestPalindrome[1].year;
+  } else {
+    var nextPalin = nextPalindrome(date)
+    var previousPalin=previousPalindrome(date)
+    if (nextPalin[0]<=previousPalin[0]){
+      displayMsg.innerText = nextPalin[0] + "days ahead is the nearest palindrome on " + nextPalin[1].day+"-"+nextPalin[1].month+"-"+nextPalin[1].year;
+    } else {
+      displayMsg.innerText = previousPalin[0] + "days before was the nearest palindrome on " + previousPalin[1].day+"-"+previousPalin[1].month+"-"+previousPalin[1].year;
+    }
   }
-
-
 }
 checkBtn.addEventListener("click", clickhandler)
