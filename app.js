@@ -117,6 +117,72 @@ function nextPalindrome(date){
   return [ctr,nextDate]
 }
 
+function getPreviousdate(date){
+  var monthArray =[31,28,31,30,31,30,31,31,30,31,30,31];
+  var day = date.day;
+  var month= date.month;
+  var year = date.year;
+  day=day-1;
+   if (month===3){
+    if (checkLeapYear(year)){
+      if (day<1){
+        day=29;
+        month--;
+      }
+    }
+    else {
+      if (day<1){
+        day=28;
+        month--;
+      }
+    }    
+  }    
+   
+  if (month!==3){
+      if (day<1){
+        day=monthArray[month-2]
+        month--
+      }
+  }
+  if (month===0){
+    day=31
+    month=12
+    year--
+  }
+    return {
+    day: day,
+    month:month,
+    year:year
+  }
+}
+
+function previousPalindrome(date){
+  var ctr=0;
+  var previousDate=getPreviousdate(date);
+  while(1){
+    ctr++
+    if (checkAlldateFormatsIsPalindrome(previousDate)){
+    break;
+    } else {
+    previousDate = getPreviousdate(previousDate);
+    }
+  }
+  return [ctr,previousDate]
+}
+
+function findNearest(date){
+  var nextPalin = nextPalindrome(date)
+  var previousPalin=previousPalindrome(date)
+  var nearest
+  if (nextPalin[0]<=previousPalin[0]){
+       nearest = nextPalin
+    } else {
+     nearest = previousPalin
+  }
+  return nearest
+ }
+
+
 
 
 function clickhandler(){
@@ -125,8 +191,8 @@ function clickhandler(){
    if (checkAlldateFormatsIsPalindrome(date)){
    displayMsg.innerText = " Yes! you were born on a palindrome"
  } else {
-    nextPalindrome = nextPalindrome(date);
-    displayMsg.innerText = nextPalindrome[0] + "days ahead is the nearest palindrome on " + nextPalindrome[1].day+"-"+nextPalindrome[1].month+"-"+nextPalindrome[1].year;
+    var nearestPalindrome = findNearest(date);
+    displayMsg.innerText = nearestPalindrome[0] + "days ahead is the nearest palindrome on " + nearestPalindrome[1].day+"-"+nearestPalindrome[1].month+"-"+nearestPalindrome[1].year;
   }
 
 
